@@ -1,0 +1,116 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+
+#profile {
+  text-align: center;
+  border: 2px solid black;
+  font-family: "Open Sans", sans-serif;
+}
+
+/* =================hospital profile ================== */
+.hospital {
+  border: 2px solid black;
+  margin: 10px 200px;
+  height: 70vh;
+  display: grid;
+  grid-template-columns: 6fr 6fr;
+}
+
+h3{
+  font-weight: 400;
+  font-size: 1.3rem;
+}
+.gridImg {
+  /* border: 2px solid black; */
+  margin: auto;
+}
+.gridImg img {
+  height: 60vh;
+  width: 30vw;
+  display: inline-block;
+}
+
+.grid-info {
+  margin-top: 20px;
+  line-height: 7px;
+}
+.grid-info h1 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+}
+.grid-info p {
+  line-height: 18px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+}
+/* ========================================= */
+
+/* ===============review=================== */
+
+#reviewheading {
+  text-align: center;
+  border: 2px solid black;
+}
+.review {
+  border: 2px solid black;
+  margin: 10px 200px;
+  padding: 5px 10px;
+}
+
+.tag {
+  margin-top: 5px;
+}
+input {
+  width: 55vw;
+}
+#name,
+#rating {
+  margin-left: 8px;
+}
+#text {
+  height: 10vh;
+}
+
+button {
+  width: 30vw;
+  height: 5vh;
+ 
+
+  margin: auto;
+  margin-top:10px;
+  
+}
+
+/* print review  */
+.container1{
+  border: 2px solid black;
+  margin: 10px 200px;
+  padding: 5px 10px;
+}
+.comment{
+  line-height: 20px;
+  /* margin: 10px 200px;  */
+  
+   padding: 5px 10px;
+  /* border: 2px solid black; */
+}
+.comment h3{
+  display: inline-block;
+  font-family: 'Roboto', sans-serif;
+  
+}
+
+.author p{
+  display: inline-block;
+  margin-right: 60px;
+}
+/*  */
+
+.author h3{
+  font-family: 'Source Serif 4', sans-serif;
+
+}
+
+/* 623dad252ced75bb68419d6b */

@@ -1,0 +1,358 @@
+<%- include('../partials/header') %>
+
+  <link rel="stylesheet" href="/stylesheets/LandingPage.css" />
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+  <div class="container-fluid">
+    <a class="navbar-brand name" href="/index"><img src="/images/front1.JPG" alt="logo" class = "logo-img" /></a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="#hospital_flag">Hospitals</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link active" href="#medical_flag">Medical Articles</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link active" href="#contact_flag">Contact</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="/blood">Blood Bank</a>
+        </li>
+      </ul>
+      <form action="/search" method="post" class="d-flex">
+        <input
+          class="form-control me-2"
+          type="search"
+          name="city";
+          placeholder="Search Location"
+          aria-label="Search"
+        />
+        <button class="btn btn-outline-primary" type="submit">
+          Search
+        </button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+
+  <!-- Landing Page -->
+  <div class="container landing_page shadow-lg p-3 mb-5 bg-white rounded">
+    <img src="images/front1.JPG" alt="logo" class="slide-in-top" />
+    <h1 class="main-heading slide-in-right">
+      <span class="front">H</span>
+      elping you find the best medical help.
+    </h1>
+  </div>
+
+  <br />
+  <!-- Hospitals card -->
+  <div class="container shadow-lg p-3 mb-5 heading rounded" id="hospital_flag">
+    <h1 class="hospital_name slide-in-right">Hospitals</h1>
+  </div>
+
+  <div class="container-fluid my-5">
+
+    <div class="row">
+      <div class="col-12 m-auto">
+        <div class="owl-carousel owl-theme">
+
+          <% for(var i=0;i<10;i++){%>
+            <div class="item mb-4">
+              <div class="card border-0 shadow">
+                <div class="card">
+                  <img class="card-img-top" src="images/hospital.jpg" alt="Card image cap" />
+
+                  <div class="card-body">
+                    <h5 class="card-title">
+                      <%=toph[i].name%>
+                    </h5>
+                    <a class="btn btn-primary" href="/viewhospital/<%=toph[i]._id%>">View </a>
+                  </div>
+
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                      <img class="d-inline" src="https://img.icons8.com/ios-glyphs/30/000000/marker--v1.png" />
+                      <%=toph[i].location.city%>
+                    </li>
+
+                    <li class="list-group-item"> 
+                      <img class="d-inline" src="https://img.icons8.com/material-rounded/24/000000/mail.png" />
+                      <%=toph[i].contact.email%>
+                    </li>
+
+                    <li class="list-group-item"><img class="d-inline" src="https://img.icons8.com/ios-glyphs/30/000000/phone--v1.png" />
+                      <%=toph[i].contact.phone%>
+                    </li>
+
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <%}%>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- Doctor-Cards -->
+
+  <!-- <div class="container Top_doctor shadow-lg p-3 mb-5 heading rounded">
+      <h1 class="hospital_name">Doctors</h1>
+    </div>
+
+     
+    <div class="container-fluid my-5">
+      
+      <div class="row">
+        <div class="col-12 m-auto">
+          <div class="owl-carousel owl-theme">
+
+            <% for(var i=0;i<10;i++){%>
+              <div class="item">
+                <div class="card border-0 shadow">
+                  <div class="card">
+                    <img
+                      class="card-img-top"
+                      src="images/2.jpg"
+                      alt="Card image cap"
+                    />
+                    <div class="card-body">
+                      <h5 class="card-title">Hospital 1 Name</h5>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item">Location</li>
+                      <li class="list-group-item">Specialisation</li>
+                      <li class="list-group-item">Contact</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <%}%>
+
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+    integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+    crossorigin="anonymous"></script>
+  <script>
+    $(".owl-carousel").owlCarousel({
+      loop: true,
+      margin: 15,
+      nav: true,
+      responsive: {
+        0: {
+          items: 1,
+        },
+        600: {
+          items: 2,
+        },
+        1000: {
+          items: 3,
+        },
+      },
+    });
+  </script>
+
+
+  </div>
+
+  <!-- Medical article -->
+  <div class="container medicalArticle" id="medical_flag">
+    <div class="Img">
+      <img class="articleImage" src="images/1629780706_292417_gif-url.gif" alt="" />
+    </div>
+
+    <div class="Text">
+      <h3>Read top articles from health experts</h3>
+      <p>
+        Health articles that keep you informed about good health practices and
+        achieve your goals
+      </p>
+      <a href="https://medium.com/search?source=home----------------------------------------&q=medical+"> <button
+          class="btn btn-lg btn-primary">The Articles</button></a>
+    </div>
+  </div>
+
+
+  <!-- footer  -->
+  <div class="container container-footer" id="contact_flag">
+    <!-- Footer -->
+    <footer class="bg-dark text-center text-white">
+      <!-- Grid container -->
+      <div class="container p-4">
+        <!-- Section: Social media -->
+        <section class="mb-4">
+
+
+          <h3>
+            About Us
+          </h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic distinctio neque quaerat, est totam similique,
+            qui ullam, quidem asperiores harum ab ad sit!
+            Corrupti architecto laboriosam beatae non quis obcaecati nihil totam enim eius?</p>
+
+          <!-- Section: Form -->
+          <section class="">
+            <form action="">
+              <!--Grid row-->
+              <div class="row d-flex justify-content-center">
+                <!--Grid column-->
+                <div class="col-auto">
+                  <p class="pt-2">
+                    <strong>Contact Us</strong>
+                  </p>
+                </div>
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-md-5 col-12">
+                  <!-- Email input -->
+                  <div class="form-outline form-white mb-4">
+                    <input type="email" id="form5Example21" class="form-control" placeholder="Enter your Email" />
+                    <label class="form-label" for="form5Example21"></label>
+                  </div>
+                </div>
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-auto">
+                  <!-- Submit button -->
+                  <button type="submit" class="btn btn-outline-light mb-4">
+                    submit
+                  </button>
+                </div>
+                <!--Grid column-->
+              </div>
+              <!--Grid row-->
+            </form>
+          </section>
+
+          <!-- Section: Links -->
+          <section class="">
+            <!--Grid row-->
+            <div class="row">
+              <!--Grid column-->
+              <div class="col-6">
+                <h5 class="text-uppercase">Social Handles</h5>
+
+                <ul class="list-unstyled mb-0">
+                  <li>
+                    <a href="#!" class="text-white">Link 1</a>
+                  </li>
+                  <li>
+                    <a href="#!" class="text-white">Link 2</a>
+                  </li>
+                  <li>
+                    <a href="#!" class="text-white">Link 3</a>
+                  </li>
+                  <li>
+                    <a href="#!" class="text-white">Link 4</a>
+                  </li>
+                </ul>
+              </div>
+              <!--Grid column-->
+
+              <!--Grid column-->
+              <div class="col-6">
+                <h5 class="text-uppercase">Links</h5>
+
+                <ul class="list-unstyled mb-0">
+                  <li>
+                    <a href="#!" class="text-white">Link 1</a>
+                  </li>
+                  <li>
+                    <a href="#!" class="text-white">Link 2</a>
+                  </li>
+                  <li>
+                    <a href="#!" class="text-white">Link 3</a>
+                  </li>
+                  <li>
+                    <a href="#!" class="text-white">Link 4</a>
+                  </li>
+                </ul>
+              </div>
+              <!--Grid column-->
+            </div>
+            <!--Grid row-->
+          </section>
+          <!-- Section: Links -->
+      </div>
+      <!-- Grid container -->
+
+      <!-- Copyright -->
+      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+        © Copyright by 3 Genius people @ right reserved 2022 :
+        <a class="text-white" href="https://nitjc.ac.in/">NITJ.com</a>
+      </div>
+      <!-- Copyright -->
+    </footer>
+    <!-- Footer -->
+  </div>
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+    integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+    crossorigin="anonymous"></script>
+
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+    integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+    crossorigin="anonymous"></script>
+  <script>
+    $(".owl-carousel").owlCarousel({
+      loop: true,
+      margin: 15,
+      nav: true,
+      responsive: {
+        0: {
+          items: 1,
+        },
+        600: {
+          items: 2,
+        },
+        1000: {
+          items: 3,
+        },
+      },
+    });
+  </script>
+  <script src="../script/corousel.js"></script>
+  </body>
+
+  </html>

@@ -1,0 +1,258 @@
+<%- include('../partials/header') %>
+
+<link rel="stylesheet" href="/stylesheets/search_Result.css">
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+  <div class="container-fluid">
+    <a class="navbar-brand name" href="/index"><img src="/images/front1.JPG" alt="logo" class = "logo-img" /></a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="#hospitals_flag"> Hospitals</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link active" href="#shops_flag">Pharmaceuticals Shops</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link active" href="#labs_flag">Laboratories</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="#blood_flag">Blood Bank</a>
+        </li>
+      </ul>
+      <form action="/search" method="post" class="d-flex">
+        <input
+          class="form-control me-2"
+          type="search"
+          name="city";
+          placeholder="Search Location"
+          aria-label="Search"
+        />
+        <button class="btn btn-outline-primary" type="submit">
+          Search
+        </button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+   <h1>Result:- <%=hospital[0].location.city%> </h1>
+   <br />
+
+<!-- Hospitals  -->
+  
+    <div class="container shadow-lg p-3 mb-5 heading rounded">
+      <h1 class="hospital_name slide-in-right" id="hospital_flag">Hospitals</h1>
+    </div>
+
+    <div class="container-fluid my-5">
+      
+      <div class="row">
+        <div class="col-12 m-auto">
+          <div class="owl-carousel owl-theme">
+
+            <% for(var i=0;i<hospital.length;i++){%>
+              <div class="item mb-4">
+                <div class="card border-0 shadow">
+                  <div class="card">
+                    <img
+                      class="card-img-top"
+                      src="images/hospital.jpg"
+                      alt="Card image cap"
+                    />
+                    <div class="card-body">
+                      <h5 class="card-title"><%=hospital[i].name%></h5>
+                      <a class="btn btn-primary" href="/viewhospital/<%=hospital[i]._id%>">View </a>
+                     
+                    </div>
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item"><img class="d-inline" src="https://img.icons8.com/ios-glyphs/30/000000/marker--v1.png" /><%=hospital[i].location.city%></li>
+                      <li class="list-group-item"><img class="d-inline" src="https://img.icons8.com/ios-glyphs/30/000000/marker--v1.png" /><%=hospital[i].location.address%></li>
+                      <li class="list-group-item"><img class="d-inline" src="https://img.icons8.com/material-rounded/24/000000/mail.png" /><%=hospital[i].contact.email%>,<%=hospital[i].contact.phone%></li>
+                    
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            <%}%>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+ 
+    <!-- Pharma-Cards -->
+    <div class="container shadow-lg p-3 mb-5 heading rounded">
+      <h1 class="hospital_name slide-in-right" id="shops_flag">Pharmaceutical Shops</h1>
+    </div>
+
+    <div class="container-fluid my-5">
+      
+      <div class="row">
+        <div class="col-12 m-auto">
+          <div class="owl-carousel owl-theme">
+
+            <% for(var i=0;i<pharma.length;i++){%>
+              <div class="item mb-4">
+                <div class="card border-0 shadow">
+                  <div class="card">
+                    <img
+                      class="card-img-top"
+                      src="images/pharmacy.jpg"
+                      alt="Card image cap"
+                    />
+                    <div class="card-body">
+                      <h5 class="card-title"><%=pharma[i].name%></h5>
+                      <a class="btn btn-primary" href="/viewpharma/<%=pharma[i]._id%>">View </a>
+                     
+                    </div>
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item"><img class="d-inline" src="https://img.icons8.com/ios-glyphs/30/000000/marker--v1.png" /><%=pharma[i].location.city%></li>
+                      <li class="list-group-item"><img class="d-inline" src="https://img.icons8.com/ios-glyphs/30/000000/marker--v1.png" /><%=pharma[i].location.address%></li>
+                      <li class="list-group-item"><img class="d-inline" src="https://img.icons8.com/ios-glyphs/30/000000/phone--v1.png" /><%=pharma[i].contact.phone%></li>
+                      
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            <%}%>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    <!-- Laborarteries -->
+    <div class="container shadow-lg p-3 mb-5 heading rounded">
+      <h1 class="hospital_name slide-in-right" id="labs_flag">Labs</h1>
+    </div>
+
+    <div class="container-fluid my-5">
+      
+      <div class="row">
+        <div class="col-12 m-auto">
+          <div class="owl-carousel owl-theme">
+
+            <% for(var i=0;i<lab.length;i++){%>
+              <div class="item mb-4">
+                <div class="card border-0 shadow">
+                  <div class="card">
+                    <img
+                      class="card-img-top"
+                      src="images/labpng.png"
+                      alt="Card image cap"
+                    />
+                    <div class="card-body">
+                      <h5 class="card-title"><%=lab[i].name%></h5>
+                      <a class="btn btn-primary" href="/viewlabs/<%=lab[i]._id%>">View </a>
+                     
+                    </div>
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item"><img class="d-inline" src="https://img.icons8.com/ios-glyphs/30/000000/marker--v1.png" /><%=lab[i].location.city%></li>
+                      <li class="list-group-item"><img class="d-inline" src="https://img.icons8.com/ios-glyphs/30/000000/marker--v1.png" /><%=lab[i].location.address%></li>
+                      <li class="list-group-item"><img class="d-inline" src="https://img.icons8.com/ios-glyphs/30/000000/phone--v1.png" /><%=lab[i].phone%></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            <%}%>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    <!-- Blood Banks -->
+    <div class="container shadow-lg p-3 mb-5 heading rounded">
+      <h1 class="hospital_name slide-in-right" id="blood_flag">Blood Banks</h1>
+    </div>
+
+    <div class="container-fluid my-5">
+      
+      <div class="row">
+        <div class="col-12 m-auto">
+          <div class="owl-carousel owl-theme">
+
+            <% for(var i=0;i<bloodbank.length;i++){%>
+              <div class="item mb-4">
+                <div class="card border-0 shadow">
+                  <div class="card">
+                    <img
+                      class="card-img-top"
+                      src="images/labpng.png"
+                      alt="Card image cap"
+                    />
+                    <div class="card-body">
+                      <h5 class="card-title"><%=bloodbank[i].name%></h5>
+                      <a class="btn btn-primary" href="/viewlabs/<%=bloodbank[i]._id%>">View </a>
+                     
+                    </div>
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item"><img class="d-inline" src="https://img.icons8.com/ios-glyphs/30/000000/marker--v1.png" /><%=bloodbank[i].location.city%></li>
+                      <li class="list-group-item"><img class="d-inline" src="https://img.icons8.com/ios-glyphs/30/000000/marker--v1.png" /><%=bloodbank[i].location.address%></li>
+                      <li class="list-group-item"><img class="d-inline" src="https://img.icons8.com/ios-glyphs/30/000000/phone--v1.png" /><%=bloodbank[i].phone%></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            <%}%>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+      integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      $(".owl-carousel").owlCarousel({
+        loop: true,
+        margin: 15,
+        nav: true,
+        responsive: {
+          0: {
+            items: 1,
+          },
+          600: {
+            items: 2,
+          },
+          1000: {
+            items: 3,
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

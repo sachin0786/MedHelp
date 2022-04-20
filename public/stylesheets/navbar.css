@@ -1,0 +1,42 @@
+/* * {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+} */
+
+.logo-img{
+  max-height: 50px;
+}
+.nav input {
+  margin-left: -10px;
+  margin-bottom: 5px;
+}
+.nav .btn {
+  padding-left: -2px;
+  padding-right: 2px;
+  margin-bottom: 5px;
+  margin: auto;
+}
+.navbar {
+  background-color: rgb(217, 217, 217);
+  opacity: 1;
+}
+.nav-link {
+  font-family: "Roboto Slab", serif;
+  font-size: 1.2rem;
+  color: rgb(0, 0, 26);
+  font-weight: 400;
+}
+
+.name {
+  font-family: "Roboto Slab", serif;
+  font-size: 1.4rem;
+}
+
+a {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.navbar {
+  position: sticky;
+}

@@ -1,0 +1,27 @@
+
+.card-title{
+    min-height: 100px;
+  }
+  
+  .list-group-item{
+    min-height: 80px;
+  }
+  
+  ul li img {
+    height: 30px;
+    max-width: 30px;
+    display: inline;
+  
+   
+  }
+  .list-group-item{
+    display: inline-block;
+  }  
+  .hospital_name{
+
+      text-align: center;
+  }
+
+  .card-img-top{
+    max-height: 300px;
+  }
